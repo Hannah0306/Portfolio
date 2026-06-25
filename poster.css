@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #070018;
+    color: #fffdf4;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  img {
+    width: 100%;
+    display: block;
+  }
+  
+  /* NAV */
+  
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 88px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    z-index: 999;
+    background: rgba(231, 216, 196, 0.55);
+    backdrop-filter: blur(18px);
+  }
+  
+  .nav a {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 30px;
+    color: #f5f4f3;
+  }
+  
+  .nav a:hover {
+    opacity: 0.55;
+  }
+  
+  /* PAGE */
+  
+  .poster-page {
+    min-height: 100vh;
+    padding: 130px 90px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* BACKGROUND GRID */
+  
+  .grid-bg {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    background-image:
+      linear-gradient(rgba(255, 253, 244, 0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 253, 244, 0.22) 1px, transparent 1px);
+    background-size: 34px 34px;
+    opacity: 0.6;
+    z-index: -1;
+  }
+  
+  .grid-left {
+    left: -180px;
+    bottom: 60px;
+    transform: rotate(18deg);
+  }
+  
+  .grid-right {
+    right: -140px;
+    top: 110px;
+    transform: rotate(-12deg);
+  }
+  
+  /* HEADER */
+  
+  .poster-header {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 55px;
+  }
+  
+  .poster-header h1 {
+    font-size: clamp(70px, 8vw, 140px);
+    line-height: 0.9;
+    color: #fffdf4;
+    letter-spacing: -6px;
+  }
+  
+  .poster-header span {
+    font-style: italic;
+  }
+  
+  .checker {
+    width: 190px;
+    height: 65px;
+    background:
+      linear-gradient(45deg, #fffdf4 25%, transparent 25%) 0 0 / 32px 32px,
+      linear-gradient(45deg, transparent 75%, #fffdf4 75%) 0 0 / 32px 32px,
+      linear-gradient(45deg, transparent 75%, #fffdf4 75%) 16px 16px / 32px 32px,
+      linear-gradient(45deg, #fffdf4 25%, transparent 25%) 16px 16px / 32px 32px;
+  }
+  
+  /* MASONRY LAYOUT */
+  
+  .poster-layout {
+    columns: 4 260px;
+    column-gap: 24px;
+  }
+  
+  .poster-card {
+    break-inside: avoid;
+    margin-bottom: 24px;
+    background: #fffdf4;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.38s ease, box-shadow 0.38s ease, filter 0.38s ease;
+  }
+  
+  .poster-card:hover {
+    transform: translateY(-14px) scale(1.025);
+    box-shadow: 0 28px 60px rgba(255, 253, 244, 0.22);
+    filter: brightness(1.05);
+  }
+  
+  .poster-card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.55s ease;
+  }
+  
+  .poster-card:hover img {
+    transform: scale(1.04);
+  }
+  
+  /* CARD SHAPE CONTROL */
+  
+  .poster-card:nth-child(1) img,
+  .poster-card:nth-child(3) img {
+    aspect-ratio: 1 / 1.25;
+    object-fit: cover;
+  }
+  
+  .poster-card:nth-child(2) img,
+  .poster-card:nth-child(5) img,
+  .poster-card:nth-child(6) img,
+  .poster-card:nth-child(8) img {
+    aspect-ratio: 3 / 4.2;
+    object-fit: cover;
+  }
+  
+  .poster-card:nth-child(4) img,
+  .poster-card:nth-child(7) img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+  
+  /* DESCRIPTION */
+  
+  .poster-description {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 60px;
+    margin-top: 65px;
+    align-items: end;
+  }
+  
+  .poster-description p {
+    font-size: 28px;
+    line-height: 1.15;
+    max-width: 780px;
+    color: #fffdf4;
+  }
+  
+  .credit {
+    color: #fffdf4;
+    opacity: 0.7;
+    text-align: right;
+  }
+  
+  /* RESPONSIVE */
+  
+  @media (max-width: 1100px) {
+    .poster-page {
+      padding: 130px 50px 80px;
+    }
+  
+    .poster-layout {
+      columns: 3 240px;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .poster-page {
+      padding: 120px 24px 60px;
+    }
+  
+    .nav {
+      gap: 28px;
+    }
+  
+    .nav a {
+      font-size: 22px;
+    }
+  
+    .poster-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .poster-header h1 {
+      font-size: 64px;
+      letter-spacing: -3px;
+    }
+  
+    .checker {
+      width: 140px;
+      height: 48px;
+    }
+  
+    .poster-layout {
+      columns: 1;
+    }
+  
+    .poster-description {
+      grid-template-columns: 1fr;
+    }
+  
+    .poster-description p {
+      font-size: 22px;
+    }
+  
+    .credit {
+      text-align: left;
+    }
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 45px;
+    padding: 16px 30px;
+    border: 2px solid #f5efe7;
+    border-radius: 999px;
+    font-size: 18px;
+    transition: 0.3s ease;
+  }
+  
+  .button:hover {
+    background: #f5efe7;
+    color: #2b1b0f;
+  }
+
+  
