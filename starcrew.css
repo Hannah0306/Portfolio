@@ -732,3 +732,23 @@
     display: block;
     object-fit: contain;
   }
+  .click-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s ease;
+  }
+  
+  .click-btn:hover {
+    background: #fff;
+    color: #111;
+    box-shadow: 0 8px 20px rgba(255,255,255,.25);
+  }
